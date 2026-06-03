@@ -1,0 +1,64 @@
+generator client {
+  provider        = "prisma-client-js"
+  previewFeatures = ["driverAdapters"]
+}
+
+datasource db {
+  provider = "sqlite"
+}
+
+model ICP {
+  id           String   @id @default(cuid())
+  name         String
+  industries   String
+  companySizes String
+  geographies  String
+  jobTitles    String
+  techStack    String
+  revenueMin   Int?
+  revenueMax   Int?
+  keywords     String
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+}
+
+model BuyerPersona {
+  id          String   @id @default(cuid())
+  name        String
+  titles      String
+  seniority   String
+  painPoints  String
+  goals       String
+  valueProps  String
+  toneStyle   String   @default("professional")
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model Lead {
+  id            String   @id @default(cuid())
+  apolloId      String?  @unique
+  firstName     String
+  lastName      String
+  email         String?
+  phone         String?
+  title         String
+  seniority     String?
+  company       String
+  industry      String?
+  companySize   String?
+  geography     String?
+  linkedinUrl   String?
+  website       String?
+  technologies  String
+  intentSignals String
+  icpScore      Float    @default(0)
+  personaMatch  String?
+  intentScore   Float    @default(0)
+  totalScore    Float    @default(0)
+  status        String   @default("new")
+  callScript    String?
+  notes         String?
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+}
