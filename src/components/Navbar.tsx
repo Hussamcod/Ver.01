@@ -8,6 +8,7 @@ const links = [
   { href: "/personas", label: "Buyer Personas" },
   { href: "/leads", label: "Lead Discovery" },
   { href: "/pipeline", label: "Call Pipeline" },
+  { href: "/export", label: "Export to CRM" },
 ];
 
 export function Navbar() {
